@@ -1,0 +1,43 @@
+# ===== AccessDenied Sec IAM Lab .gitignore =====
+
+# Sensitive credentials and secrets — NEVER commit
+passwords.txt
+secrets.txt
+*.pem
+*.key
+*credentials*
+*.env
+
+# Personal notes and scratchpads
+notes.txt
+notes.md
+TODO.txt
+private/
+
+# Microsoft Graph / PowerShell tokens (in case scripts cache them locally)
+*.token
+.azure/
+.graph/
+
+# OS-generated clutter
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor / IDE clutter
+.vscode/
+.idea/
+*.swp
+*~
+
+# Windows shortcuts
+*.lnk
+
+# Logs
+*.log
+logs/
+
+# Temporary export files
+*.tmp
+exports/
