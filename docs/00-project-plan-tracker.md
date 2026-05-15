@@ -22,8 +22,8 @@
 | Phase | Name | Est. Time | Status |
 |---|---|---|---|
 | 1 | Foundation Setup | 2 hrs | ✅ Complete |
-| 2 | Identity Setup (Users, Groups, RBAC) | 3 hrs | 🔄 In Progress |
-| 3 | Authentication Security (MFA, SSPR) | 1.5 hrs | ⏳ Pending |
+| 2 | Identity Setup (Users, Groups, RBAC) | 3 hrs | ✅ Complete |
+| 3 | Authentication Security (MFA, SSPR) | 1.5 hrs | 🔄 In Progress |
 | 4 | Conditional Access Policies | 3 hrs | ⏳ Pending |
 | 5 | Privileged Identity Management (PIM) | 3 hrs | ⏳ Pending |
 | 6 | Enterprise Application SSO | 2.5 hrs | ⏳ Pending |
