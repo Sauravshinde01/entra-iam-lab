@@ -1,7 +1,7 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
 **Last Updated:** June 5, 2026  
-**Current Phase:** Phase 6 — Enterprise App SSO  
+**Current Phase:** Phase 7 — Azure RBAC 
 **Overall Status:** 🔄 In Progress
 
 ---
@@ -15,8 +15,8 @@
 | 3 | Authentication Security | ✅ Complete | 1.5 hr | Auth methods, SSPR, MFA |
 | 4 | Conditional Access | ✅ Complete | 3 hr | 4 CA policies, break-glass |
 | 5 | PIM | ✅ Complete | 2 hr | JIT elevation, access review |
-| 6 | Enterprise App SSO | ⏳ Pending | 1.5 hr | GitHub SAML SSO |
-| 7 | Azure RBAC | ⏳ Pending | 1.5 hr | Storage + group-based RBAC |
+| 6 | Enterprise App SSO | ✅ Pending | 1.5 hr | GitHub SAML SSO |
+| 7 | Azure RBAC | 🔄 Pending | 1.5 hr | Storage + group-based RBAC |
 | 8 | JML Lifecycle | ⏳ Pending | 1 hr | Jack as demo subject |
 | 9 | Log Analysis | ⏳ Pending | 1 hr | Sign-in + audit log review |
 | 10 | Automation | ⏳ Pending | 1.5 hr | PowerShell + Graph scripts |
@@ -95,12 +95,14 @@
 
 ---
 
-## ⏳ Phase 6: Enterprise App SSO
+## ✅ Phase 6: Enterprise App SSO
 
-- [ ] GitHub registered as enterprise application
-- [ ] SAML SSO configured
-- [ ] Test user SSO sign-in validated
-- [ ] Documentation: 07-enterprise-sso.md
+- [x] GitHub Enterprise Cloud - Organization added from Entra gallery
+- [x] SAML SSO configured (Entity ID, ACS URL, Sign-on URL)
+- [x] GRP-IT assigned to the application
+- [x] Bella (IT) validated — GitHub tile visible in My Apps
+- [x] Ethan (Finance) validated — GitHub tile not visible in My Apps
+- [x] Documentation: 07-enterprise-sso.md
 
 ---
 
