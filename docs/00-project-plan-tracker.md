@@ -1,7 +1,7 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
-**Last Updated:** June 3, 2026  
-**Current Phase:** Phase 5 — Privileged Identity Management (PIM)  
+**Last Updated:** June 5, 2026  
+**Current Phase:** Phase 6 — Enterprise App SSO  
 **Overall Status:** 🔄 In Progress
 
 ---
@@ -14,7 +14,7 @@
 | 2 | Identity Setup | ✅ Complete | 1.5 hr | Users, groups, P2, roles |
 | 3 | Authentication Security | ✅ Complete | 1.5 hr | Auth methods, SSPR, MFA |
 | 4 | Conditional Access | ✅ Complete | 3 hr | 4 CA policies, break-glass |
-| 5 | PIM | 🔄 In Progress | 2 hr | JIT elevation for Aaron |
+| 5 | PIM | ✅ Complete | 2 hr | JIT elevation, access review |
 | 6 | Enterprise App SSO | ⏳ Pending | 1.5 hr | GitHub SAML SSO |
 | 7 | Azure RBAC | ⏳ Pending | 1.5 hr | Storage + group-based RBAC |
 | 8 | JML Lifecycle | ⏳ Pending | 1 hr | Jack as demo subject |
@@ -80,15 +80,18 @@
 
 ---
 
-## 🔄 Phase 5: Privileged Identity Management (PIM)
+## ✅ Phase 5: Privileged Identity Management (PIM)
 
-- [ ] PIM enabled for the tenant
-- [ ] Aaron IT-Admin configured as eligible Global Administrator
-- [ ] Activation settings configured (justification, MFA, time limit)
-- [ ] JIT elevation tested (Aaron activates Global Admin role)
-- [ ] Activation request and approval workflow documented
-- [ ] PIM audit log reviewed
-- [ ] Documentation: 06-pim-configuration.md
+- [x] PIM blade verified accessible (P2 license active)
+- [x] Aaron IT-Admin configured as Eligible Global Administrator
+- [x] Role settings: 4hr max activation, Azure MFA required, justification required
+- [x] Aaron MFA registered (Microsoft Authenticator)
+- [x] JIT elevation tested — Aaron activated Global Admin via PIM
+- [x] Activation confirmed on Active assignments tab (4hr window)
+- [x] Access review created (AR-GlobalAdmin-Quarterly-Review, status: Active)
+- [x] Troubleshooting documented: "Unknown error" on activation (backend succeeded despite UI error)
+- [ ] Azure RBAC via PIM: Eligible Storage Blob Data Reader (pending Phase 7)
+- [x] Documentation: 06-pim-privileged-identity-management.md
 
 ---
 
