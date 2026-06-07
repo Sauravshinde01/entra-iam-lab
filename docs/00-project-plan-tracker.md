@@ -1,7 +1,7 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
 **Last Updated:** June 5, 2026  
-**Current Phase:** Phase 7 — Azure RBAC 
+**Current Phase:** Phase 8 — JML Lifecycle
 **Overall Status:** 🔄 In Progress
 
 ---
@@ -16,8 +16,8 @@
 | 4 | Conditional Access | ✅ Complete | 3 hr | 4 CA policies, break-glass |
 | 5 | PIM | ✅ Complete | 2 hr | JIT elevation, access review |
 | 6 | Enterprise App SSO | ✅ Pending | 1.5 hr | GitHub SAML SSO |
-| 7 | Azure RBAC | 🔄 Pending | 1.5 hr | Storage + group-based RBAC |
-| 8 | JML Lifecycle | ⏳ Pending | 1 hr | Jack as demo subject |
+| 7 | Azure RBAC | ✅ Pending | 1.5 hr | Storage + group-based RBAC |
+| 8 | JML Lifecycle | 🔄 Pending | 1 hr | Jack as demo subject |
 | 9 | Log Analysis | ⏳ Pending | 1 hr | Sign-in + audit log review |
 | 10 | Automation | ⏳ Pending | 1.5 hr | PowerShell + Graph scripts |
 | 11 | Documentation Polish | ⏳ Pending | 1 hr | Architecture diagram, README |
@@ -90,7 +90,7 @@
 - [x] Activation confirmed on Active assignments tab (4hr window)
 - [x] Access review created (AR-GlobalAdmin-Quarterly-Review, status: Active)
 - [x] Troubleshooting documented: "Unknown error" on activation (backend succeeded despite UI error)
-- [ ] Azure RBAC via PIM: Eligible Storage Blob Data Reader (pending Phase 7)
+- [x] Azure RBAC via PIM: Aaron assigned Eligible Storage Blob Data Reader on rg-iam-lab
 - [x] Documentation: 06-pim-privileged-identity-management.md
 
 ---
@@ -106,13 +106,18 @@
 
 ---
 
-## ⏳ Phase 7: Azure RBAC
+## ✅ Phase 7: Azure RBAC
 
-- [ ] Resource group created (rg-iam-lab)
-- [ ] Storage account created
-- [ ] GRP-Finance assigned Storage Blob Data Reader role
-- [ ] RBAC tested with Finance user
-- [ ] Documentation: 08-azure-rbac.md
+- [x] Resource group created (rg-iam-lab, South Central US)
+- [x] Admin subscription permissions resolved (Owner role assigned)
+- [x] Storage account created (stiamlabsaurav, Standard LRS)
+- [x] Blob container created (iam-lab-data, Private)
+- [x] Sample file uploaded (sample-data.txt)
+- [x] GRP-Finance assigned Reader on rg-iam-lab (management plane)
+- [x] GRP-Finance assigned Storage Blob Data Reader on iam-lab-data (data plane)
+- [x] Fiona (Finance) validated — blob access confirmed via Entra auth
+- [x] Diana (HR) validated — access denied at management plane
+- [x] Documentation: 08-azure-rbac.md
 
 ---
 
