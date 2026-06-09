@@ -1,7 +1,7 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
 **Last Updated:** June 5, 2026  
-**Current Phase:** Phase 8 — JML Lifecycle
+**Current Phase:** Phase 9 — Log Analysis
 **Overall Status:** 🔄 In Progress
 
 ---
@@ -17,8 +17,8 @@
 | 5 | PIM | ✅ Complete | 2 hr | JIT elevation, access review |
 | 6 | Enterprise App SSO | ✅ Pending | 1.5 hr | GitHub SAML SSO |
 | 7 | Azure RBAC | ✅ Pending | 1.5 hr | Storage + group-based RBAC |
-| 8 | JML Lifecycle | 🔄 Pending | 1 hr | Jack as demo subject |
-| 9 | Log Analysis | ⏳ Pending | 1 hr | Sign-in + audit log review |
+| 8 | JML Lifecycle | ✅ Pending | 1 hr | Jack as demo subject |
+| 9 | Log Analysis | 🔄 Pending | 1 hr | Sign-in + audit log review |
 | 10 | Automation | ⏳ Pending | 1.5 hr | PowerShell + Graph scripts |
 | 11 | Documentation Polish | ⏳ Pending | 1 hr | Architecture diagram, README |
 | 12 | Shutdown | ⏳ Pending | 30 min | Cancel P2, delete resources |
@@ -121,13 +121,16 @@
 
 ---
 
-## ⏳ Phase 8: JML Lifecycle
+## ✅ Phase 8: JML Lifecycle
 
-- [ ] Joiner scenario demonstrated (new hire onboarding)
-- [ ] Mover scenario demonstrated (Jack moves department)
-- [ ] Leaver scenario demonstrated (Jack offboarded)
-- [ ] Documentation: 09-jml-lifecycle.md
-
+- [x] Joiner: Jack's onboarded baseline documented (External, GRP-Contractors)
+- [x] Mover: Profile updated (IT Support Specialist, IT department)
+- [x] Mover: Removed from GRP-Contractors, added to GRP-IT
+- [x] Mover: Verified automatic app inheritance (GitHub SSO via GRP-IT)
+- [x] Leaver: Account disabled (block sign-in)
+- [x] Leaver: All sessions revoked
+- [x] Leaver: Removed from all groups (zero memberships)
+- [x] Documentation: 09-jml-lifecycle.md
 ---
 
 ## ⏳ Phase 9: Log Analysis
