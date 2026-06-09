@@ -1,0 +1,14 @@
+﻿DisplayName,UserPrincipalName,Department,JobTitle,AccountEnabled,LicensesAssigned,CreatedDateTime
+Aaron IT-Admin,aaron.itadmin@Sauravshindegmail.onmicrosoft.com,IT,IT Administrator,TRUE,Yes,13-05-2026 14:56
+Saurav Admin,admin@Sauravshindegmail.onmicrosoft.com,IT,Tenant Administrator,TRUE,Yes,15-05-2026 02:34
+Bella Helpdesk,bella.helpdesk@Sauravshindegmail.onmicrosoft.com,IT,Help Desk Technician,TRUE,No,13-05-2026 15:10
+Break Glass Admin,breakglass@Sauravshindegmail.onmicrosoft.com,,Emergency Access Account,TRUE,No,25-05-2026 01:43
+Carlos HR-Lead,carlos.hrlead@Sauravshindegmail.onmicrosoft.com,HR,HR Manager,TRUE,Yes,13-05-2026 15:13
+Diana HR-Specialist,diana.hrspecialist@Sauravshindegmail.onmicrosoft.com,HR,HR Specialist,TRUE,Yes,13-05-2026 17:01
+Ethan Finance-Lead,ethan.financelead@Sauravshindegmail.onmicrosoft.com,Finance,Finance Manager,TRUE,No,13-05-2026 17:03
+Fiona Finance-Analyst,fiona.financeanalyst@Sauravshindegmail.onmicrosoft.com,Finance,Financial Analyst,TRUE,No,13-05-2026 17:05
+Grace Employee,grace.employee@Sauravshindegmail.onmicrosoft.com,Sales,Sales Representative,TRUE,No,13-05-2026 17:07
+Henry Employee,henry.employee@Sauravshindegmail.onmicrosoft.com,Marketing,Marketing Coordinator,TRUE,No,13-05-2026 17:09
+Ivy Contractor,ivy.contractor@Sauravshindegmail.onmicrosoft.com,External,Contractor,TRUE,No,13-05-2026 17:12
+Jack Contractor,jack.contractor@Sauravshindegmail.onmicrosoft.com,IT,IT Support Specialist,FALSE,No,13-05-2026 17:14
+Saurav Shinde,Saurav.shinde_gmail.com#EXT#@Sauravshindegmail.onmicrosoft.com,,,TRUE,No,13-03-2026 19:49
