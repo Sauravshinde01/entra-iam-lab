@@ -1,7 +1,7 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
 **Last Updated:** June 5, 2026  
-**Current Phase:** Phase 9 — Log Analysis
+**Current Phase:** Phase 10 — Reporting & Portfolio Wrap-Up
 **Overall Status:** 🔄 In Progress
 
 ---
@@ -133,13 +133,13 @@
 - [x] Documentation: 09-jml-lifecycle.md
 ---
 
-## ⏳ Phase 9: Log Analysis
-
-- [ ] Sign-in logs reviewed and documented
-- [ ] Audit logs reviewed and documented
-- [ ] SOC-style findings written up
-- [ ] Documentation: 10-log-analysis.md
-
+## ✅ Phase 9: Log Analysis & SOC-Style Findings
+- [x] Sign-in logs reviewed — Last 7 days, interactive user sign-ins
+- [x] Finding 1: Fiona MFA registration gap — CA01 Failure → Success (11-min gap documented)
+- [x] Finding 2: Ethan normal MFA-compliant sign-in via My Apps — verified
+- [x] Audit logs reviewed — Last 7 days, Directory category
+- [x] Finding 3: Jack leaver sequence confirmed in audit trail (disable → revoke → remove)
+- [x] Documentation: 10-log-analysis.md
 ---
 
 ## ⏳ Phase 10: Automation
