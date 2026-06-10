@@ -73,6 +73,8 @@ Reviewed sign-in and audit logs across the last 7 days and produced three struct
 ---
 
 ## Repository Structure
+
+```
 entra-iam-lab/
 ├── README.md
 ├── docs/
@@ -86,15 +88,17 @@ entra-iam-lab/
 │   ├── 07-azure-rbac.md
 │   ├── 08-conditional-access-advanced.md
 │   ├── 09-jml-lifecycle.md
-│   └── 10-log-analysis.md
+│   ├── 10-log-analysis.md
+│   └── 11-automation-scripts.md
 └── screenshots/
-├── 04-conditional-access/
-├── 05-pim/
-├── 06-enterprise-sso/
-├── 07-azure-rbac/
-├── 08-jml-lifecycle/
-└── 09-log-analysis/
----
+    ├── 04-conditional-access/
+    ├── 05-pim/
+    ├── 06-enterprise-sso/
+    ├── 07-azure-rbac/
+    ├── 08-jml-lifecycle/
+    ├── 09-log-analysis/
+    └── 10-automation/
+```
 
 ## Key Technical Concepts Demonstrated
 
