@@ -86,6 +86,8 @@ Connected to the Entra ID tenant via Microsoft Graph PowerShell SDK v2.37.0 and 
 ---
 
 ## Repository Structure
+
+```
 entra-iam-lab/
 ├── README.md
 ├── docs/
@@ -106,14 +108,14 @@ entra-iam-lab/
 │   ├── 01-export-users.ps1
 │   └── 02-export-grp-it-members.ps1
 └── screenshots/
-├── 04-conditional-access/
-├── 05-pim/
-├── 06-enterprise-sso/
-├── 07-azure-rbac/
-├── 08-jml-lifecycle/
-├── 09-log-analysis/
-└── 10-automation/
----
+    ├── 04-conditional-access/
+    ├── 05-pim/
+    ├── 06-enterprise-sso/
+    ├── 07-azure-rbac/
+    ├── 08-jml-lifecycle/
+    ├── 09-log-analysis/
+    └── 10-automation/
+```
 
 ## Key Technical Concepts Demonstrated
 
