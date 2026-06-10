@@ -1,7 +1,7 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
-**Last Updated:** June 5, 2026  
-**Current Phase:** Phase 11 — Documentation Polish
+**Current Phase:** Phase 12 — Shutdown
+**Last Updated:** June 10, 2026
 **Overall Status:** 🔄 In Progress
 
 ---
@@ -20,8 +20,8 @@
 | 8 | JML Lifecycle | ✅ Pending | 1 hr | Jack as demo subject |
 | 9 | Log Analysis | ✅ Pending | 1 hr | Sign-in + audit log review |
 | 10 | Automation | ✅ Pending | 1.5 hr | PowerShell + Graph scripts |
-| 11 | Documentation Polish | 🔄 Pending | 1 hr | Architecture diagram, README |
-| 12 | Shutdown | ⏳ Pending | 30 min | Cancel P2, delete resources |
+| 11 | Documentation Polish | ✅ Pending | 1 hr | Architecture diagram, README |
+| 12 | Shutdown | 🔄 Pending | 30 min | Cancel P2, delete resources |
 
 ---
 
@@ -152,13 +152,15 @@
 - [x] Documentation: 11-automation-scripts.md
 ---
 
-## ⏳ Phase 11: Documentation Polish
+## ✅ Phase 11: Documentation Polish
 
-- [ ] Architecture diagram created (draw.io)
-- [ ] README updated with final project summary
-- [ ] All docs reviewed for consistency
-- [ ] GitHub repo polished for portfolio presentation
-
+- [x] Architecture diagram created (draw.io) and exported as PNG
+- [x] Architecture diagram added to docs/ and embedded in README
+- [x] README updated with architecture overview, Phase 10 highlights, correct repository structure
+- [x] Duplicate 02-users-plan.md removed from repo root
+- [x] Repository structure section fixed (code block rendering on GitHub)
+- [x] All docs reviewed for consistency
+- [x] GitHub repo polished for portfolio presentation
 ---
 
 ## ⏳ Phase 12: Shutdown
