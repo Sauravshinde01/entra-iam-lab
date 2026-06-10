@@ -1,7 +1,7 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
 **Last Updated:** June 5, 2026  
-**Current Phase:** Phase 10 — Reporting & Portfolio Wrap-Up
+**Current Phase:** Phase 11 — Documentation Polish
 **Overall Status:** 🔄 In Progress
 
 ---
@@ -19,8 +19,8 @@
 | 7 | Azure RBAC | ✅ Pending | 1.5 hr | Storage + group-based RBAC |
 | 8 | JML Lifecycle | ✅ Pending | 1 hr | Jack as demo subject |
 | 9 | Log Analysis | ✅ Pending | 1 hr | Sign-in + audit log review |
-| 10 | Automation | 🔄 Pending | 1.5 hr | PowerShell + Graph scripts |
-| 11 | Documentation Polish | ⏳ Pending | 1 hr | Architecture diagram, README |
+| 10 | Automation | ✅ Pending | 1.5 hr | PowerShell + Graph scripts |
+| 11 | Documentation Polish | 🔄 Pending | 1 hr | Architecture diagram, README |
 | 12 | Shutdown | ⏳ Pending | 30 min | Cancel P2, delete resources |
 
 ---
@@ -142,13 +142,14 @@
 - [x] Documentation: 10-log-analysis.md
 ---
 
-## ⏳ Phase 10: Automation
+## ✅ Phase 10: Automation
 
-- [ ] PowerShell script: Export users + licenses to CSV
-- [ ] PowerShell script: Export GRP-IT members to CSV
-- [ ] Scripts tested and output verified
-- [ ] Documentation: 11-automation-scripts.md
-
+- [x] Installed Microsoft Graph PowerShell SDK (Authentication, Users, Groups modules v2.37.0)
+- [x] Connected to Entra tenant via delegated auth (admin@Sauravshindegmail.onmicrosoft.com)
+- [x] PowerShell script: Export all users to CSV (13 users, all fields verified)
+- [x] PowerShell script: Export GRP-IT members to CSV (2 members, Jack absence confirmed)
+- [x] Scripts tested and output verified in Excel
+- [x] Documentation: 11-automation-scripts.md
 ---
 
 ## ⏳ Phase 11: Documentation Polish
