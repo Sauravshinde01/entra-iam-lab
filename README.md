@@ -10,6 +10,12 @@ A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Mana
 
 ---
 
+## Architecture Overview
+
+![IAM Lab Architecture](docs/architecture-diagram.png)
+
+---
+
 ## What This Lab Demonstrates
 
 This project simulates the IAM responsibilities of an Identity Engineer or SOC Analyst in a real enterprise environment — from initial tenant setup through conditional access enforcement, privileged identity management, SSO integration, Azure RBAC, identity lifecycle governance, and log-based security analysis.
@@ -31,7 +37,8 @@ All configurations are hands-on in a live Entra ID P2 tenant with real users, gr
 | 7 | Azure RBAC & Resource Access | ✅ Complete |
 | 8 | Joiner-Mover-Leaver Lifecycle | ✅ Complete |
 | 9 | Log Analysis & SOC-Style Findings | ✅ Complete |
-| 10 | Reporting & Portfolio Wrap-Up | 🔄 In Progress |
+| 10 | Automation (Graph PowerShell) | ✅ Complete |
+| 11 | Documentation Polish | ✅ Complete |
 
 ---
 
@@ -70,61 +77,11 @@ Reviewed sign-in and audit logs across the last 7 days and produced three struct
 - **Finding 2 (Informational):** Ethan Finance-Lead authenticated successfully via My Apps portal — all four CA policies evaluated correctly
 - **Finding 3 (Informational):** Jack Contractor leaver sequence confirmed in audit logs — account disable, session token invalidation, and group removal all recorded with timestamps
 
+### Phase 10 — Automation (Graph PowerShell)
+Connected Microsoft Graph PowerShell SDK to the Entra tenant and built two automation scripts:
+- **Script 1:** Export all users with IAM attributes (DisplayName, UPN, Department, JobTitle, AccountEnabled, Licenses) to CSV — 13 users exported, Jack's disabled account confirmed
+- **Script 2:** Export GRP-IT members to CSV — 2 active members, Jack's absence confirmed post-offboarding
+
 ---
 
 ## Repository Structure
-
-```
-entra-iam-lab/
-├── README.md
-├── docs/
-│   ├── 00-project-plan-tracker.md
-│   ├── 01-tenant-setup.md
-│   ├── 02-users-groups-rbac.md
-│   ├── 03-dynamic-groups.md
-│   ├── 04-conditional-access.md
-│   ├── 05-pim.md
-│   ├── 06-enterprise-sso.md
-│   ├── 07-azure-rbac.md
-│   ├── 08-conditional-access-advanced.md
-│   ├── 09-jml-lifecycle.md
-│   ├── 10-log-analysis.md
-│   └── 11-automation-scripts.md
-└── screenshots/
-    ├── 04-conditional-access/
-    ├── 05-pim/
-    ├── 06-enterprise-sso/
-    ├── 07-azure-rbac/
-    ├── 08-jml-lifecycle/
-    ├── 09-log-analysis/
-    └── 10-automation/
-```
-
-## Key Technical Concepts Demonstrated
-
-- Microsoft Entra ID P2 tenant configuration
-- Conditional Access policy design and enforcement
-- Just-in-Time privileged access via PIM
-- SAML 2.0 SSO integration with third-party apps
-- Azure RBAC — management plane vs. data plane access
-- Identity lifecycle governance (Joiner-Mover-Leaver)
-- Sign-in log analysis and CA policy validation
-- Audit log review and SOC-style findings documentation
-- Break-glass account design and emergency access hygiene
-
----
-
-## Environment
-
-| Setting | Value |
-|---------|-------|
-| Tenant | Sauravshindegmail.onmicrosoft.com |
-| Tenant Name | AccessDenied Sec |
-| Subscription | Azure Pay-As-You-Go |
-| Entra ID License | P2 (trial) |
-| Admin Account | admin@Sauravshindegmail.onmicrosoft.com |
-| Resource Group | rg-iam-lab |
-
----
-
-*This lab is for educational and portfolio purposes. All users, groups, and scenarios are fictional.*
