@@ -6,6 +6,7 @@ A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Mana
 > **Tenant:** `Sauravshindegmail.onmicrosoft.com`  
 > **Subscription:** Azure Pay-As-You-Go  
 > **Lab Period:** May–June 2026  
+> **Total Cost:** < $0.01  
 > **Instagram:** [@accessdeniedsec](https://instagram.com/accessdeniedsec)
 
 ---
@@ -18,7 +19,7 @@ A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Mana
 
 ## What This Lab Demonstrates
 
-This project simulates the IAM responsibilities of an Identity Engineer or SOC Analyst in a real enterprise environment — from initial tenant setup through conditional access enforcement, privileged identity management, SSO integration, Azure RBAC, identity lifecycle governance, log-based security analysis, and PowerShell automation via Microsoft Graph.
+This project simulates the IAM responsibilities of an Identity Engineer or SOC Analyst in a real enterprise environment — from initial tenant setup through conditional access enforcement, privileged identity management, SSO integration, Azure RBAC, identity lifecycle governance, log-based security analysis, PowerShell automation via Microsoft Graph, and controlled resource decommission.
 
 All configurations are hands-on in a live Entra ID P2 tenant with real users, groups, policies, and audit evidence.
 
@@ -30,7 +31,7 @@ All configurations are hands-on in a live Entra ID P2 tenant with real users, gr
 |---|-------|--------|
 | 1 | Tenant & Environment Setup | ✅ Complete |
 | 2 | Users, Groups & RBAC | ✅ Complete |
-| 3 | Dynamic Groups & Admin Segregation | ✅ Complete |
+| 3 | Authentication Security | ✅ Complete |
 | 4 | Conditional Access Policies | ✅ Complete |
 | 5 | Privileged Identity Management (PIM) | ✅ Complete |
 | 6 | Enterprise SSO (GitHub SAML) | ✅ Complete |
@@ -39,7 +40,7 @@ All configurations are hands-on in a live Entra ID P2 tenant with real users, gr
 | 9 | Log Analysis & SOC-Style Findings | ✅ Complete |
 | 10 | Automation (PowerShell + Graph) | ✅ Complete |
 | 11 | Documentation Polish | ✅ Complete |
-| 12 | Shutdown | ⏳ Pending |
+| 12 | Shutdown & Decommission | ✅ Complete |
 
 ---
 
@@ -83,6 +84,16 @@ Connected to the Entra ID tenant via Microsoft Graph PowerShell SDK v2.37.0 and 
 - **Script 1:** Export all tenant users with IAM attributes to CSV (13 users — confirmed Jack's disabled account)
 - **Script 2:** Export GRP-IT members to CSV (2 members — confirmed Jack's absence post-offboarding)
 
+### Phase 11 — Documentation Polish
+Created a professional architecture diagram covering all IAM layers. Updated README with full project narrative, fixed repository structure rendering, and polished all phase documentation for portfolio presentation.
+
+### Phase 12 — Shutdown & Decommission
+Performed controlled decommission of all lab resources:
+- Microsoft Entra ID P2 Trial cancelled
+- Azure resource group `rg-iam-lab` and storage account `stiamlabsaurav` deleted
+- All resources confirmed empty
+- Final cost: **< $0.01 USD** for the entire lab
+
 ---
 
 ## Repository Structure
@@ -103,19 +114,27 @@ entra-iam-lab/
 │   ├── 09-jml-lifecycle.md
 │   ├── 10-log-analysis.md
 │   ├── 11-automation-scripts.md
+│   ├── 12-shutdown.md
 │   └── architecture-diagram.png
 ├── scripts/
 │   ├── 01-export-users.ps1
-│   └── 02-export-grp-it-members.ps1
+│   ├── 02-export-grp-it-members.ps1
+│   ├── users-export.csv
+│   └── grp-it-members-export.csv
 └── screenshots/
+    ├── 01-foundation/
+    ├── 02-identity/
+    ├── 03-authentication/
     ├── 04-conditional-access/
     ├── 05-pim/
     ├── 06-enterprise-sso/
     ├── 07-azure-rbac/
     ├── 08-jml-lifecycle/
     ├── 09-log-analysis/
-    └── 10-automation/
+    ├── 10-automation/
+    └── 12-shutdown/
 ```
+---
 
 ## Key Technical Concepts Demonstrated
 
@@ -129,6 +148,7 @@ entra-iam-lab/
 - Audit log review and SOC-style findings documentation
 - Break-glass account design and emergency access hygiene
 - Microsoft Graph PowerShell automation and CSV reporting
+- Controlled cloud resource decommission and cost management
 
 ---
 
@@ -139,9 +159,10 @@ entra-iam-lab/
 | Tenant | Sauravshindegmail.onmicrosoft.com |
 | Tenant Name | AccessDenied Sec |
 | Subscription | Azure Pay-As-You-Go |
-| Entra ID License | P2 (trial) |
+| Entra ID License | P2 trial (expired — lab complete) |
 | Admin Account | admin@Sauravshindegmail.onmicrosoft.com |
-| Resource Group | rg-iam-lab |
+| Resource Group | rg-iam-lab (deleted — Phase 12) |
+| Total Lab Cost | < $0.01 USD |
 
 ---
 
