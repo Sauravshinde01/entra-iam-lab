@@ -1,8 +1,8 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
-**Current Phase:** Phase 12 — Shutdown
+**Current Phase:** Complete — All 12 Phases Done ✅
 **Last Updated:** June 10, 2026
-**Overall Status:** 🔄 In Progress
+**Overall Status:** ✅ Complete
 
 ---
 
@@ -163,13 +163,14 @@
 - [x] GitHub repo polished for portfolio presentation
 ---
 
-## ⏳ Phase 12: Shutdown
+## ✅ Phase 12: Shutdown
 
-- [ ] P2 trial cancelled before Day 30
-- [ ] Azure storage resources deleted
-- [ ] Tenant left on free tier
-- [ ] Final cost check ($0 remaining)
-
+- [x] Microsoft Entra ID P2 Trial cancelled (status: Disabled)
+- [x] Azure resource group rg-iam-lab deleted
+- [x] Azure storage account stiamlabsaurav deleted
+- [x] Azure All Resources confirmed empty
+- [x] Final cost confirmed: < $0.01 USD
+- [x] Documentation: 12-shutdown.md
 ---
 
 ## Key Reference Info
