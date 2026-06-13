@@ -15,13 +15,13 @@
 | 3 | Authentication Security | ✅ Complete | 1.5 hr | Auth methods, SSPR, MFA |
 | 4 | Conditional Access | ✅ Complete | 3 hr | 4 CA policies, break-glass |
 | 5 | PIM | ✅ Complete | 2 hr | JIT elevation, access review |
-| 6 | Enterprise App SSO | ✅ Pending | 1.5 hr | GitHub SAML SSO |
-| 7 | Azure RBAC | ✅ Pending | 1.5 hr | Storage + group-based RBAC |
-| 8 | JML Lifecycle | ✅ Pending | 1 hr | Jack as demo subject |
-| 9 | Log Analysis | ✅ Pending | 1 hr | Sign-in + audit log review |
-| 10 | Automation | ✅ Pending | 1.5 hr | PowerShell + Graph scripts |
-| 11 | Documentation Polish | ✅ Pending | 1 hr | Architecture diagram, README |
-| 12 | Shutdown | 🔄 Pending | 30 min | Cancel P2, delete resources |
+| 6 | Enterprise App SSO | ✅ Complete | 1.5 hr | GitHub SAML SSO |
+| 7 | Azure RBAC | ✅ Complete | 1.5 hr | Storage + group-based RBAC |
+| 8 | JML Lifecycle | ✅ Complete | 1 hr | Jack as demo subject |
+| 9 | Log Analysis | ✅ Complete | 1 hr | Sign-in + audit log review |
+| 10 | Automation | ✅ Complete | 1.5 hr | PowerShell + Graph scripts |
+| 11 | Documentation Polish | ✅ Complete | 1 hr | Architecture diagram, README |
+| 12 | Shutdown | ✅ Complete | 30 min | Cancel P2, delete resources |
 
 ---
 
