@@ -1,8 +1,8 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
-**Current Phase:** Complete — All 12 Phases Done ✅
-**Last Updated:** June 10, 2026
-**Overall Status:** ✅ Complete
+**Current Phase:** Phase 13 Complete — Extension in progress (Phase 14 proposed) 🔄
+**Last Updated:** July 2026
+**Overall Status:** ✅ Core lab (Phases 1–12) complete | 🔄 Extension phases in progress
 
 ---
 
@@ -22,6 +22,8 @@
 | 10 | Automation | ✅ Complete | 1.5 hr | PowerShell + Graph scripts |
 | 11 | Documentation Polish | ✅ Complete | 1 hr | Architecture diagram, README |
 | 12 | Shutdown | ✅ Complete | 30 min | Cancel P2, delete resources |
+| 13 | NHI Governance | ✅ Complete | ~2.5 hr | Workload ID, managed identity, GitHub OIDC federation |
+| 14 | Agent-to-Tool Authorization (MCP) | 🔲 Proposed | ~3 hr (est.) | Scoping pass required before starting |
 
 ---
 
@@ -173,23 +175,54 @@
 - [x] Documentation: 12-shutdown.md
 ---
 
+## ✅ Phase 13: Non-Human Identity (NHI) Governance
+
+- [x] App registration created: AccessDenied-Workload-Automation
+- [x] Resource group + storage account recreated (rg-iam-lab, stiamlabsaurav) — originals deleted in Phase 12
+- [x] Automation Account created with system-assigned managed identity (aa-iam-lab-automation)
+- [x] Managed identity assigned Storage Blob Data Reader, scoped to storage account only
+- [x] GitHub Actions OIDC federated credential configured (Sauravshinde01/entra-iam-lab, branch: main)
+- [x] `.github/workflows/azure-oidc-auth.yml` added — secretless Azure login from CI/CD
+- [x] Troubleshot and resolved: app registration object vs. service principal RBAC distinction
+- [x] Service principal granted Reader role on rg-iam-lab — workflow succeeded
+- [x] Workload ID inventory confirmed (109 total identities tenant-wide)
+- [x] Resource group deleted (cascading) — automation account, storage account, runbooks all removed
+- [x] App registration deliberately preserved for Phase 14
+- [x] Total cost: $0.00
+- [x] Documentation: 13-nhi-governance.md
+
+---
+
+## 🔲 Phase 14: Agent-to-Tool Authorization (MCP Governance) — Proposed
+
+- [ ] Scoping pass: verify current free/self-hosted MCP server options compatible with Entra ID OIDC auth
+- [ ] Stand up tool endpoint (MCP server or mock API)
+- [ ] Authenticate Phase 13 agent identity to the tool endpoint (reuse federated credential — no new secrets)
+- [ ] Define and document scoped, least-privilege tool permissions
+- [ ] Route agent-to-tool access logs into a reviewable log/SIEM view
+- [ ] Test revocation — confirm tool access fails immediately after credential pulled
+- [ ] Cost verification required before starting (target: $0)
+- [ ] Documentation: 14-agent-tool-authorization.md (not yet created)
+
+---
+
 ## Key Reference Info
 
 | Item | Value |
 |---|---|
 | Tenant | Sauravshindegmail.onmicrosoft.com |
 | Tenant display name | AccessDenied Sec |
-| Native admin | admin@Sauravshindegmail.onmicrosoft.com |
+| Working admin account | Saurav.shinde@gmail.com (Global Administrator — confirmed working, Phase 13) |
+| Native admin (legacy reference) | admin@Sauravshindegmail.onmicrosoft.com |
 | GitHub repo | github.com/Sauravshinde01/entra-iam-lab |
 | Local path | D:\IAM project\ |
-| P2 trial activated | ~May 15, 2026 (expires ~June 14, 2026) |
+| Entra ID license (current) | Free tier — P2 trial expired/cancelled after Phase 12 |
 | Azure subscription | Pay-As-You-Go |
 | Budget alert | $10/month |
+| Phase 13 app registration (preserved) | AccessDenied-Workload-Automation — client ID `ff6e16fb-4b2e-4fae-9748-107da2095c60` |
 
 ---
 
-## P2 Trial Deadline ⚠️
+## Notes on Licensing (Phase 13+)
 
-**Cancel before:** ~June 14, 2026  
-Cancel via M365 Admin Center → Billing → Your products  
-Failure to cancel = $9/user/month charge on payment card
+The original Entra ID P2 trial (Phase 2) was cancelled as part of Phase 12 shutdown. Phase 13 confirmed that Microsoft Entra Agent ID and Workload ID's core discovery/inventory features work on the **Free tier** — no reactivation needed. A second P2 trial was evaluated (would require payment details and auto-converts to paid after 1 month) and deliberately **not activated** — not required for the governance story being demonstrated. Conditional Access and Identity Protection for workload identities/agents remain P1/P2-gated and are out of scope unless a future phase specifically requires them.

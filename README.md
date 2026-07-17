@@ -1,12 +1,12 @@
 # Entra ID IAM Lab — AccessDenied Sec
 
-A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Management (IAM) operations for a fictional company called **AccessDenied Sec**. Built to demonstrate SC-300 domain competencies to potential employers.
+A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Management (IAM) operations for a fictional company called **AccessDenied Sec**. Built to demonstrate SC-300 domain competencies to potential employers, then extended to cover non-human identity (NHI) governance.
 
-> **Certification:** Microsoft SC-300 — Identity and Access Administrator Associate (March 2026)  
-> **Tenant:** `Sauravshindegmail.onmicrosoft.com`  
-> **Subscription:** Azure Pay-As-You-Go  
-> **Lab Period:** May–June 2026  
-> **Total Cost:** < $0.01  
+> **Certification:** Microsoft SC-300 — Identity and Access Administrator Associate (March 2026)
+> **Tenant:** `Sauravshindegmail.onmicrosoft.com`
+> **Subscription:** Azure Pay-As-You-Go
+> **Core Lab Period:** May–June 2026 (Phases 1–12) | **Extension:** July 2026 (Phase 13+)
+> **Total Cost:** < $0.01
 > **Instagram:** [@accessdeniedsec](https://instagram.com/accessdeniedsec)
 
 ---
@@ -15,13 +15,15 @@ A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Mana
 
 ![IAM Lab Architecture](docs/architecture-diagram.png)
 
+*Diagram covers Phases 1–12 (human identity lifecycle). Phase 13's non-human identity flow (app registration → federated credential → GitHub Actions OIDC → Azure RBAC; managed identity → Automation Account → RBAC) is described in `docs/13-nhi-governance.md` pending an architecture diagram update.*
+
 ---
 
 ## What This Lab Demonstrates
 
-This project simulates the IAM responsibilities of an Identity Engineer or SOC Analyst in a real enterprise environment — from initial tenant setup through conditional access enforcement, privileged identity management, SSO integration, Azure RBAC, identity lifecycle governance, log-based security analysis, PowerShell automation via Microsoft Graph, and controlled resource decommission.
+This project simulates the IAM responsibilities of an Identity Engineer or SOC Analyst in a real enterprise environment — from initial tenant setup through conditional access enforcement, privileged identity management, SSO integration, Azure RBAC, identity lifecycle governance, log-based security analysis, PowerShell automation via Microsoft Graph, controlled resource decommission, and — as of Phase 13 — non-human identity (NHI) governance for AI/automation workloads.
 
-All configurations are hands-on in a live Entra ID P2 tenant with real users, groups, policies, and audit evidence.
+All configurations are hands-on in a live Entra ID tenant with real users, groups, policies, and audit evidence.
 
 ---
 
@@ -41,6 +43,8 @@ All configurations are hands-on in a live Entra ID P2 tenant with real users, gr
 | 10 | Automation (PowerShell + Graph) | ✅ Complete |
 | 11 | Documentation Polish | ✅ Complete |
 | 12 | Shutdown & Decommission | ✅ Complete |
+| 13 | Non-Human Identity (NHI) Governance | ✅ Complete |
+| 14 | Agent-to-Tool Authorization (MCP Governance) | 🔲 Proposed |
 
 ---
 
@@ -94,6 +98,16 @@ Performed controlled decommission of all lab resources:
 - All resources confirmed empty
 - Final cost: **< $0.01 USD** for the entire lab
 
+### Phase 13 — Non-Human Identity (NHI) Governance
+Extended the lab beyond human identity lifecycle to cover the fastest-growing category of enterprise identity risk — non-human identities (NHIs) — using an app registration and a system-assigned managed identity:
+- **App registration** (`AccessDenied-Workload-Automation`) secured with **GitHub Actions OIDC federation** — zero secrets stored anywhere, authenticated via short-lived federated tokens
+- **System-assigned managed identity** (via Azure Automation Account) granted least-privilege **Storage Blob Data Reader**, scoped to a single storage account
+- Diagnosed and resolved a real-world RBAC gotcha: an app registration object and its corresponding service principal are distinct objects — federation trust and RBAC assignment must each target the correct one
+- Confirmed both identities in **Microsoft Entra Workload ID**'s inventory (109 workload identities tenant-wide)
+- Ran entirely on **Entra ID Free tier** — no premium licensing required
+- Cleanly decommissioned all temporary Azure resources; app registration deliberately preserved as the foundation for Phase 14
+- Total cost: **$0.00**
+
 ---
 
 ## Repository Structure
@@ -101,9 +115,12 @@ Performed controlled decommission of all lab resources:
 ```
 entra-iam-lab/
 ├── README.md
+├── .github/
+│   └── workflows/
+│       └── azure-oidc-auth.yml
 ├── docs/
 │   ├── 00-project-plan-tracker.md
-│   ├── 01-tenant-setup.md
+│   ├── 01-project-overview.md
 │   ├── 02-users-plan.md
 │   ├── 03-authentication-security.md
 │   ├── 04-break-glass-account.md
@@ -115,6 +132,7 @@ entra-iam-lab/
 │   ├── 10-log-analysis.md
 │   ├── 11-automation-scripts.md
 │   ├── 12-shutdown.md
+│   ├── 13-nhi-governance.md
 │   └── architecture-diagram.png
 ├── scripts/
 │   ├── 01-export-users.ps1
@@ -132,13 +150,14 @@ entra-iam-lab/
     ├── 08-jml-lifecycle/
     ├── 09-log-analysis/
     ├── 10-automation/
-    └── 12-shutdown/
+    ├── 12-shutdown/
+    └── 13-nhi-governance/
 ```
 ---
 
 ## Key Technical Concepts Demonstrated
 
-- Microsoft Entra ID P2 tenant configuration
+- Microsoft Entra ID tenant configuration (P2 trial and Free tier)
 - Conditional Access policy design and enforcement
 - Just-in-Time privileged access via PIM
 - SAML 2.0 SSO integration with third-party apps
@@ -149,6 +168,10 @@ entra-iam-lab/
 - Break-glass account design and emergency access hygiene
 - Microsoft Graph PowerShell automation and CSV reporting
 - Controlled cloud resource decommission and cost management
+- **Non-human identity (NHI) governance** — app registrations, service principals, and managed identities
+- **Secretless authentication** via OpenID Connect (OIDC) federation for CI/CD
+- **Microsoft Entra Workload ID** inventory and governance
+- App registration vs. service principal authorization boundaries
 
 ---
 
@@ -159,9 +182,10 @@ entra-iam-lab/
 | Tenant | Sauravshindegmail.onmicrosoft.com |
 | Tenant Name | AccessDenied Sec |
 | Subscription | Azure Pay-As-You-Go |
-| Entra ID License | P2 trial (expired — lab complete) |
-| Admin Account | admin@Sauravshindegmail.onmicrosoft.com |
-| Resource Group | rg-iam-lab (deleted — Phase 12) |
+| Entra ID License | Free tier (P2 trial cancelled after Phase 12; Phase 13 confirmed Free tier is sufficient for NHI/Workload ID governance) |
+| Working Admin Account | Saurav.shinde@gmail.com (Global Administrator) |
+| Resource Group | rg-iam-lab (recreated in Phase 13, deleted again in Phase 13 shutdown) |
+| Preserved Non-Human Identity | AccessDenied-Workload-Automation (app registration, retained for Phase 14) |
 | Total Lab Cost | < $0.01 USD |
 
 ---
