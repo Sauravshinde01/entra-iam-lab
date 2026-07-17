@@ -215,7 +215,6 @@
 | Working admin account | Saurav.shinde@gmail.com (Global Administrator — confirmed working, Phase 13) |
 | Native admin (legacy reference) | admin@Sauravshindegmail.onmicrosoft.com |
 | GitHub repo | github.com/Sauravshinde01/entra-iam-lab |
-| Local path | D:\IAM project\ |
 | Entra ID license (current) | Free tier — P2 trial expired/cancelled after Phase 12 |
 | Azure subscription | Pay-As-You-Go |
 | Budget alert | $10/month |
