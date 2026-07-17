@@ -1,0 +1,23 @@
+# .github/workflows/azure-oidc-auth.yml
+name: Azure OIDC Authentication Demo
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  azure-login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure Login via OIDC
+        uses: azure/login@v2
+        with:
+          client-id: ff6e16fb-4b2e-4fae-9748-107da2095c60
+          tenant-id: 4af7eb5a-74c3-44a6-8dcd-757e8f2d9f49
+          subscription-id: 4abbea86-6dc9-4f8f-82a5-346887f1ac93
+
+      - name: Confirm login
+        run: az account show
