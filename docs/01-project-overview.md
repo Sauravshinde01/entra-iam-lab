@@ -13,7 +13,7 @@
 | **Project Type** | Personal portfolio / certification-aligned learning lab |
 | **Alignment** | Microsoft SC-300: Identity and Access Administrator |
 | **Cloud Platform** | Microsoft Entra ID (formerly Azure AD) + Microsoft Azure |
-| **Duration** | ~3 weeks active build |
+| **Duration** | ~3 weeks active build (core lab) + extension phases |
 | **Repository** | github.com/Sauravshinde01/entra-iam-lab |
 | **Related Content** | instagram.com/accessdeniedsec — IAM learning content |
 
@@ -143,7 +143,7 @@ This lab is built on widely-recognized identity security principles:
 
 ## 📐 Scope
 
-### In Scope
+### In Scope (Core Lab — Phases 1–12)
 - Entra ID tenant configuration end-to-end
 - 10 fictional users across 6 departments
 - 5 security groups (1 dynamic, 4 assigned)
@@ -156,14 +156,14 @@ This lab is built on widely-recognized identity security principles:
 - Two Graph PowerShell automation scripts
 - Full GitHub documentation with architecture diagram
 
-### Out of Scope (intentional to keep tight)
-- Hybrid identity (Entra Connect / on-prem AD sync)
-- Multiple enterprise applications
-- Microsoft Sentinel / Defender for Cloud integration
-- Production-scale deployment
-- Identity Protection deep dive (referenced conceptually)
-- Custom application registration / OAuth scopes
-- API access reviews
+### Originally Out of Scope — Now Partially Addressed via Extension (see note below)
+- Hybrid identity (Entra Connect / on-prem AD sync) — *still out of scope*
+- Multiple enterprise applications — *still out of scope*
+- Microsoft Sentinel / Defender for Cloud integration — *still out of scope*
+- Production-scale deployment — *still out of scope*
+- Identity Protection deep dive — *still out of scope*
+- ~~Custom application registration / OAuth scopes~~ — *addressed in Phase 13 (extension)*
+- API access reviews — *still out of scope*
 
 ---
 
@@ -191,7 +191,7 @@ This project aligns with all four SC-300 exam domains:
 | Azure Storage Account (minimal usage) | < $1 |
 | GitHub (public repository) | $0 |
 | draw.io, VS Code, Git | $0 |
-| **Total** | **< $1** |
+| **Total (Phases 1–12)** | **< $1** |
 
 Budget alert configured at $10 to catch unexpected charges. P2 trial canceled before Day 30 to avoid auto-billing.
 
@@ -228,6 +228,12 @@ When complete, this project produces:
 Saurav Shinde — actively building IAM and cybersecurity skills toward SOC Analyst and IAM Engineer roles. This lab is part of a broader "building in public" approach, also documented on Instagram @accessdeniedsec.
 
 **Why this project?** Theoretical SC-300 knowledge from study guides is useful, but hands-on implementation experience is what hiring managers actually look for. This project bridges that gap by combining real configuration work with thorough documentation of decisions and trade-offs.
+
+---
+
+## 📌 Post-Completion Extension (Phase 13+)
+
+The core 12-phase lab described above was completed and shut down in June 2026 (see `12-shutdown.md`). In July 2026, the project was extended with **Phase 13: Non-Human Identity (NHI) Governance** — covering app registrations, service principals, managed identities, and secretless CI/CD authentication via GitHub Actions OIDC federation. This directly addresses the "custom application registration / OAuth scopes" item originally listed as out of scope above, reflecting how quickly NHI governance has become a core IAM responsibility since this lab was first scoped. A further extension (Phase 14 — agent-to-tool authorization) is proposed but not yet started. See `00-project-plan-tracker.md` for current live status.
 
 ---
 
