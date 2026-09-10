@@ -215,7 +215,7 @@ When complete, this project produces:
 2. **Architecture diagram** — visual overview of the IAM design
 3. **25+ annotated screenshots** — proof of every implemented control
 4. **Per-phase documentation** — markdown docs explaining the *why* behind each implementation choice
-5. **Conditional Access policy library** — exported JSON for all 4 policies
+5. **Conditional Access policies** — four policies configured and documented (portal-based)
 6. **PowerShell automation scripts** — committed and documented
 7. **Resume bullets** — 4–5 concise statements ready to paste into a resume
 8. **Interview narrative** — STAR-format walkthrough usable in technical interviews
@@ -231,9 +231,14 @@ Saurav Shinde — actively building IAM and cybersecurity skills toward SOC Anal
 
 ---
 
-## 📌 Post-Completion Extension (Phase 13+)
+## 📌 Post-Completion Extension (Phases 13–14)
 
-The core 12-phase lab described above was completed and shut down in June 2026 (see `12-shutdown.md`). In July 2026, the project was extended with **Phase 13: Non-Human Identity (NHI) Governance** — covering app registrations, service principals, managed identities, and secretless CI/CD authentication via GitHub Actions OIDC federation. This directly addresses the "custom application registration / OAuth scopes" item originally listed as out of scope above, reflecting how quickly NHI governance has become a core IAM responsibility since this lab was first scoped. A further extension (Phase 14 — agent-to-tool authorization) is proposed but not yet started. See `00-project-plan-tracker.md` for current live status.
+The core 12-phase lab described above was completed and shut down in June 2026 (see `12-shutdown.md`). It was then extended with two phases covering non-human and AI agent identity — the fastest-growing area of IAM since this lab was first scoped:
+
+- **Phase 13 — Non-Human Identity (NHI) Governance** (July 2026): app registrations, service principals, managed identities, and secretless CI/CD authentication via GitHub Actions OIDC federation, verified in Microsoft Entra Workload ID. This directly addresses the "custom application registration / OAuth scopes" item originally listed as out of scope above. See `13-nhi-governance.md`.
+- **Phase 14 — Agent-to-Tool Authorization** (September 2026): a self-built governance layer in Python/FastAPI implementing the MCP authorization pattern — scoped policy-as-code access, immutable audit logging, and immediate revocation. Built and run entirely locally at $0. See `14-agent-tool-authorization.md`.
+
+See `00-project-plan-tracker.md` for full phase-by-phase status.
 
 ---
 
