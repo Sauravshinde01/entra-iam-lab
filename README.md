@@ -15,7 +15,7 @@ A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Mana
 
 ![IAM Lab Architecture](docs/architecture-diagram.png)
 
-*Diagram covers Phases 1–12 (human identity lifecycle). Phase 13's non-human identity flow (app registration → federated credential → GitHub Actions OIDC → Azure RBAC; managed identity → Automation Account → RBAC) is described in `docs/13-nhi-governance.md`, and Phase 14's agent-to-tool authorization layer in `docs/14-agent-tool-authorization.md`, pending an architecture diagram update.*
+*Diagram covers all 14 phases end to end: human identity governance (Phases 1–12), non-human identity governance (Phase 13), and AI agent-to-tool authorization (Phase 14). Detailed write-ups in `docs/13-nhi-governance.md` and `docs/14-agent-tool-authorization.md`.*
 
 ---
 
