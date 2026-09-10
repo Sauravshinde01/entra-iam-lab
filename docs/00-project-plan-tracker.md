@@ -1,8 +1,8 @@
 # Project Plan Tracker — AccessDenied Sec IAM Lab
 
-**Current Phase:** Phase 13 Complete — Extension in progress (Phase 14 proposed) 🔄
-**Last Updated:** July 2026
-**Overall Status:** ✅ Core lab (Phases 1–12) complete | 🔄 Extension phases in progress
+**Current Phase:** Phase 14 Complete — All phases done ✅
+**Last Updated:** September 2026
+**Overall Status:** ✅ Core lab (Phases 1–12) complete | ✅ Extension phases (13–14) complete
 
 ---
 
@@ -23,7 +23,7 @@
 | 11 | Documentation Polish | ✅ Complete | 1 hr | Architecture diagram, README |
 | 12 | Shutdown | ✅ Complete | 30 min | Cancel P2, delete resources |
 | 13 | NHI Governance | ✅ Complete | ~2.5 hr | Workload ID, managed identity, GitHub OIDC federation |
-| 14 | Agent-to-Tool Authorization (MCP) | 🔲 Proposed | ~3 hr (est.) | Scoping pass required before starting |
+| 14 | Agent-to-Tool Authorization | ✅ Complete | ~3 hr | FastAPI governance layer, policy-as-code, immutable audit, immediate revocation |
 
 ---
 
@@ -193,16 +193,18 @@
 
 ---
 
-## 🔲 Phase 14: Agent-to-Tool Authorization (MCP Governance) — Proposed
+## ✅ Phase 14: Agent-to-Tool Authorization (Governance Layer)
 
-- [ ] Scoping pass: verify current free/self-hosted MCP server options compatible with Entra ID OIDC auth
-- [ ] Stand up tool endpoint (MCP server or mock API)
-- [ ] Authenticate Phase 13 agent identity to the tool endpoint (reuse federated credential — no new secrets)
-- [ ] Define and document scoped, least-privilege tool permissions
-- [ ] Route agent-to-tool access logs into a reviewable log/SIEM view
-- [ ] Test revocation — confirm tool access fails immediately after credential pulled
-- [ ] Cost verification required before starting (target: $0)
-- [ ] Documentation: 14-agent-tool-authorization.md (not yet created)
+- [x] Built FastAPI tool endpoint with read + write actions (phase14-agent-governance)
+- [x] Wrote policy-as-code file (policy.yaml) defining allowed actions per agent
+- [x] Added governance check — allow/deny each call by policy, 403 on denial
+- [x] Verified scoped access: allowed read (200), denied write (403), unknown agent (403)
+- [x] Added immutable append-only audit logging (audit.log) — every decision recorded
+- [x] Implemented and tested immediate revocation — access pulled took effect on next request, no restart
+- [x] Restored policy to normal state; revocation evidenced via screenshots
+- [x] Evaluated DVARA (commercial MCP governance) — enterprise-gated, built own layer instead
+- [x] Total cost: $0.00
+- [x] Documentation: 14-agent-tool-authorization.md
 
 ---
 
@@ -219,9 +221,10 @@
 | Azure subscription | Pay-As-You-Go |
 | Budget alert | $10/month |
 | Phase 13 app registration (preserved) | AccessDenied-Workload-Automation — client ID `ff6e16fb-4b2e-4fae-9748-107da2095c60` |
+| Phase 14 stack | Python 3.12, FastAPI, uvicorn, PyYAML (self-hosted, local, $0) |
 
 ---
 
 ## Notes on Licensing (Phase 13+)
 
-The original Entra ID P2 trial (Phase 2) was cancelled as part of Phase 12 shutdown. Phase 13 confirmed that Microsoft Entra Agent ID and Workload ID's core discovery/inventory features work on the **Free tier** — no reactivation needed. A second P2 trial was evaluated (would require payment details and auto-converts to paid after 1 month) and deliberately **not activated** — not required for the governance story being demonstrated. Conditional Access and Identity Protection for workload identities/agents remain P1/P2-gated and are out of scope unless a future phase specifically requires them.
+The original Entra ID P2 trial (Phase 2) was cancelled as part of Phase 12 shutdown. Phase 13 confirmed that Microsoft Entra Agent ID and Workload ID's core discovery/inventory features work on the **Free tier** — no reactivation needed. A second P2 trial was evaluated (would require payment details and auto-converts to paid after 1 month) and deliberately **not activated** — not required for the governance story being demonstrated. Conditional Access and Identity Protection for workload identities/agents remain P1/P2-gated and are out of scope. Phase 14 ran entirely locally in Python at $0 with no Azure or licensing dependency.

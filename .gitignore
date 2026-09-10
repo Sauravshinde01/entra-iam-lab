@@ -19,6 +19,11 @@ private/
 .azure/
 .graph/
 
+# Python virtual environment and cache (Phase 14)
+venv/
+__pycache__/
+*.pyc
+
 # OS-generated clutter
 Thumbs.db
 ehthumbs.db
@@ -37,6 +42,7 @@ Desktop.ini
 # Logs
 *.log
 logs/
+!audit.log
 
 # Temporary export files
 *.tmp

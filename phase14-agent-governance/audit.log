@@ -1,0 +1,5 @@
+{"timestamp": "2026-09-09T09:35:06.733583+00:00", "agent_id": "inventory-reader-agent", "action": "read_inventory", "decision": "ALLOWED", "reason": "Action permitted by policy"}
+{"timestamp": "2026-09-09T09:44:11.144806+00:00", "agent_id": "inventory-reader-agent", "action": "write_inventory", "decision": "DENIED", "reason": "Action not in allowed_actions"}
+{"timestamp": "2026-09-10T02:08:07.740837+00:00", "agent_id": "random-hacker-agent", "action": "read_inventory", "decision": "DENIED", "reason": "Unknown agent"}
+{"timestamp": "2026-09-10T02:13:18.543459+00:00", "agent_id": "inventory-reader-agent", "action": "read_inventory", "decision": "ALLOWED", "reason": "Action permitted by policy"}
+{"timestamp": "2026-09-10T02:15:50.450595+00:00", "agent_id": "inventory-reader-agent", "action": "read_inventory", "decision": "DENIED", "reason": "Action not in allowed_actions"}

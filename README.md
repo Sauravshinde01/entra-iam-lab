@@ -1,11 +1,11 @@
 # Entra ID IAM Lab — AccessDenied Sec
 
-A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Management (IAM) operations for a fictional company called **AccessDenied Sec**. Built to demonstrate SC-300 domain competencies to potential employers, then extended to cover non-human identity (NHI) governance.
+A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Management (IAM) operations for a fictional company called **AccessDenied Sec**. Built to demonstrate SC-300 domain competencies to potential employers, then extended to cover non-human identity (NHI) governance and AI agent-to-tool authorization.
 
 > **Certification:** Microsoft SC-300 — Identity and Access Administrator Associate (March 2026)
 > **Tenant:** `Sauravshindegmail.onmicrosoft.com`
 > **Subscription:** Azure Pay-As-You-Go
-> **Core Lab Period:** May–June 2026 (Phases 1–12) | **Extension:** July 2026 (Phase 13+)
+> **Core Lab Period:** May–June 2026 (Phases 1–12) | **Extension:** July–September 2026 (Phases 13–14)
 > **Total Cost:** < $0.01
 > **Instagram:** [@accessdeniedsec](https://instagram.com/accessdeniedsec)
 
@@ -15,13 +15,13 @@ A hands-on Microsoft Entra ID lab simulating enterprise Identity and Access Mana
 
 ![IAM Lab Architecture](docs/architecture-diagram.png)
 
-*Diagram covers Phases 1–12 (human identity lifecycle). Phase 13's non-human identity flow (app registration → federated credential → GitHub Actions OIDC → Azure RBAC; managed identity → Automation Account → RBAC) is described in `docs/13-nhi-governance.md` pending an architecture diagram update.*
+*Diagram covers Phases 1–12 (human identity lifecycle). Phase 13's non-human identity flow (app registration → federated credential → GitHub Actions OIDC → Azure RBAC; managed identity → Automation Account → RBAC) is described in `docs/13-nhi-governance.md`, and Phase 14's agent-to-tool authorization layer in `docs/14-agent-tool-authorization.md`, pending an architecture diagram update.*
 
 ---
 
 ## What This Lab Demonstrates
 
-This project simulates the IAM responsibilities of an Identity Engineer or SOC Analyst in a real enterprise environment — from initial tenant setup through conditional access enforcement, privileged identity management, SSO integration, Azure RBAC, identity lifecycle governance, log-based security analysis, PowerShell automation via Microsoft Graph, controlled resource decommission, and — as of Phase 13 — non-human identity (NHI) governance for AI/automation workloads.
+This project simulates the IAM responsibilities of an Identity Engineer or SOC Analyst in a real enterprise environment — from initial tenant setup through conditional access enforcement, privileged identity management, SSO integration, Azure RBAC, identity lifecycle governance, log-based security analysis, PowerShell automation via Microsoft Graph, controlled resource decommission, and — in the extension phases — non-human identity (NHI) governance and AI agent-to-tool authorization.
 
 All configurations are hands-on in a live Entra ID tenant with real users, groups, policies, and audit evidence.
 
@@ -44,7 +44,7 @@ All configurations are hands-on in a live Entra ID tenant with real users, group
 | 11 | Documentation Polish | ✅ Complete |
 | 12 | Shutdown & Decommission | ✅ Complete |
 | 13 | Non-Human Identity (NHI) Governance | ✅ Complete |
-| 14 | Agent-to-Tool Authorization (MCP Governance) | 🔲 Proposed |
+| 14 | Agent-to-Tool Authorization (Governance Layer) | ✅ Complete |
 
 ---
 
@@ -108,6 +108,9 @@ Extended the lab beyond human identity lifecycle to cover the fastest-growing ca
 - Cleanly decommissioned all temporary Azure resources; app registration deliberately preserved as the foundation for Phase 14
 - Total cost: **$0.00**
 
+### Phase 14 — Agent-to-Tool Authorization (Governance Layer)
+Built a working agent governance layer in Python/FastAPI implementing the MCP authorization pattern. A policy-as-code file (`policy.yaml`) defines what each agent may do; a governance check enforces it on every call, returning 403 for anything not explicitly allowed. Every decision — allowed and denied — is recorded to an append-only immutable audit log. Demonstrated immediate revocation: editing the policy pulled an agent's access on the very next request with no restart. Ran entirely locally at $0. Evaluated a commercial MCP governance platform (DVARA) during scoping but built the layer independently to keep it fully owned and free.
+
 ---
 
 ## Repository Structure
@@ -133,7 +136,13 @@ entra-iam-lab/
 │   ├── 11-automation-scripts.md
 │   ├── 12-shutdown.md
 │   ├── 13-nhi-governance.md
+│   ├── 14-agent-tool-authorization.md
 │   └── architecture-diagram.png
+├── phase14-agent-governance/
+│   ├── main.py
+│   ├── policy.yaml
+│   ├── audit.log
+│   └── requirements.txt
 ├── scripts/
 │   ├── 01-export-users.ps1
 │   ├── 02-export-grp-it-members.ps1
@@ -151,7 +160,8 @@ entra-iam-lab/
     ├── 09-log-analysis/
     ├── 10-automation/
     ├── 12-shutdown/
-    └── 13-nhi-governance/
+    ├── 13-nhi-governance/
+    └── 14-agent-governance/
 ```
 ---
 
@@ -172,6 +182,7 @@ entra-iam-lab/
 - **Secretless authentication** via OpenID Connect (OIDC) federation for CI/CD
 - **Microsoft Entra Workload ID** inventory and governance
 - App registration vs. service principal authorization boundaries
+- **AI agent-to-tool authorization** — scoped access, policy-as-code, immutable audit logging, and immediate revocation (Python/FastAPI, MCP authorization pattern)
 
 ---
 
@@ -184,8 +195,8 @@ entra-iam-lab/
 | Subscription | Azure Pay-As-You-Go |
 | Entra ID License | Free tier (P2 trial cancelled after Phase 12; Phase 13 confirmed Free tier is sufficient for NHI/Workload ID governance) |
 | Working Admin Account | Saurav.shinde@gmail.com (Global Administrator) |
-| Resource Group | rg-iam-lab (recreated in Phase 13, deleted again in Phase 13 shutdown) |
-| Preserved Non-Human Identity | AccessDenied-Workload-Automation (app registration, retained for Phase 14) |
+| Preserved Non-Human Identity | AccessDenied-Workload-Automation (app registration, retained and reused across Phases 13–14) |
+| Phase 14 Stack | Python 3.12, FastAPI, uvicorn, PyYAML (self-hosted, local, $0) |
 | Total Lab Cost | < $0.01 USD |
 
 ---

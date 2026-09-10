@@ -1,0 +1,11 @@
+# Policy-as-Code: defines what each agent identity is allowed to do
+# This file is the single source of truth for authorization.
+# It is intentionally separate from the enforcement code.
+
+agents:
+  inventory-reader-agent:
+    description: "An agent allowed to read inventory only"
+    allowed_actions:
+      - read_inventory
+    denied_actions:
+      - write_inventory
